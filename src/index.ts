@@ -14,7 +14,7 @@ const estimateRecipeTimeController = new EstimateRecipeTimeController();
 
 // Set up routes
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
+  res.json({'Message': 'Hello World!'});
 });
 
 app.post('/estimate-recipe-time', async (req: Request, res: Response) => {
