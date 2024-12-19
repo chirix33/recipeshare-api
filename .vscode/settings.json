@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/3752a707-3a92-435c-8d47-517543502cd4/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/recipeshare-api",
+    "appService.deploySubpath": "."
+}
