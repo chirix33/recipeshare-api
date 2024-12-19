@@ -1,0 +1,64 @@
+{
+  "projectType": "azd",
+  "iacTypes": [
+    "bicep"
+  ],
+  "resources": [
+    {
+      "type": "azurecontainerapp",
+      "instances": [
+        {
+          "name": "recipeshareapi"
+        }
+      ]
+    },
+    {
+      "type": "azureopenai",
+      "instances": [
+        {
+          "name": "ai0"
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "source": "${azurecontainerapp.recipeshareapi}",
+      "target": "${azureopenai.ai0}",
+      "connection": "secret",
+      "store": "",
+      "customKeys": {
+        "AZURE_OPENAI_BASE": "AZURE_OPENAI_BASE",
+        "AZURE_OPENAI_KEY": "OPENAI_API_KEY",
+        "AZURE_OPENAI_DEPLOYMENT": "AZURE_OPENAI_DEPLOYMENT"
+      }
+    }
+  ],
+  "services": [
+    {
+      "host": "${azurecontainerapp.recipeshareapi}",
+      "language": "ts",
+      "project": "./",
+      "port": "80"
+    }
+  ],
+  "settings": [
+    {
+      "resource": "${azurecontainerapp.recipeshareapi}",
+      "envs": [
+        {
+          "name": "PORT",
+          "value": ""
+        },
+        {
+          "name": "NODE_CHANNEL_FD",
+          "value": ""
+        },
+        {
+          "name": "BOOK_LANG",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}
